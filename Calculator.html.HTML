@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        * {
+            background-color: #2e2b2b;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: relative;
+            width: 216px;
+            background-color: #ABABAB;
+            margin: 50px auto;
+            padding: 8px 8px 20px 8px;
+            border-radius: 4px;
+            border-top: 2px solid #FFF;
+            border-right: 2px solid #FFF;
+            border-bottom: 2px solid #C1C1C1;
+            border-left: 2px solid #C1C1C1;
+            box-shadow: -3px 3px 7px rgba(0, 0, 0, .6), inset -100px 0px 100px rgba(255, 255, 255, .5);
+        }
+
+        #input {
+            background-color: #FFF;
+            margin: 15px auto;
+            height: 80px;
+            width: 149px;
+            padding: 0 8px;
+            border-radius: 4px;
+            border-top: 2px solid #C1C1C1;
+            border-right: 2px solid #C1C1C1;
+            border-bottom: 2px solid #FFF;
+            border-left: 2px solid #FFF;
+            font-size: 25px;
+            color: #666;
+            text-align: right;
+            font-weight: 400;
+            box-shadow: inset 0px 0px 10px #030303, inset 0px -20px 1px rgba(150, 150, 150, .2);
+        }
+
+        #para {
+            position: absolute;
+            background-color: none;
+            color: #666;
+            font-weight: 400;
+            font-size: 18px;
+            margin-top: -44px;
+            margin-left: 18px;
+            background-color:aliceblue;
+
+           
+
+
+        }
+
+        .button {
+            margin: 2px;
+            width: 42px;
+            height: 42px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+
+        }
+
+        .digits {
+            color: #181818;
+            background-color: #EBEBEB;
+            border-radius: 4px;
+            border-top: 2px solid #FFF;
+            border-right: 2px solid #FFF;
+            border-bottom: 2px solid #C1C1C1;
+            border-left: 2px solid #C1C1C1;
+            box-shadow: 0px 0px 2px #030303, inset 0px -20px 1px #DCDCDC;
+        }
+
+        .mathButtons {
+            color: #FFF;
+            margin: 2px 2px 6px 2px;
+            text-shadow: -1px -1px 0px #44006F;
+            background-color: #434343;
+            box-shadow: 0px 0px 2px #030303, inset 0px -20px 1px #2E2E2E;
+            border-top: 2px solid #C1C1C1;
+            border-right: 2px solid #C1C1C1;
+            border-bottom: 2px solid #181818;
+            border-left: 2px solid #181818;
+        }
+
+        #sum {
+            background-color: rgb(3, 83, 3);
+            box-shadow: 0px 0px 2px rgb(3, 83, 3), inset 0px -20px 1px rgb(3, 83, 3);
+            color: #FFF;
+            margin: 2px 2px 6px 2px;
+            text-shadow: -1px -1px 0px #44006F;
+            border-top: 2px solid #C1C1C1;
+            border-right: 2px solid #C1C1C1;
+            border-bottom: 2px solid rgb(3, 83, 3);
+            border-left: 2px solid rgb(3, 83, 3);
+        }
+
+        #clearButton {
+            color: #FFF;
+            text-shadow: -1px -1px 0px #44006F;
+            background-color: #D20000;
+            border-top: 2px solid #FF8484;
+            border-right: 2px solid #FF8484;
+            border-bottom: 2px solid #800000;
+            border-left: 2px solid #800000;
+            box-shadow: 0px 0px 2px #030303, inset 0px -20px 1px #B00000;
+        }
+
+        #deletebtn {
+            color: #FFF;
+            background-color: #434343;
+            background-color: #434343;
+            box-shadow: 0px 0px 2px #030303, inset 0px -20px 1px #2E2E2E;
+            border-top: 2px solid #C1C1C1;
+            border-right: 2px solid #C1C1C1;
+            border-bottom: 2px solid #181818;
+            border-left: 2px solid #181818;
+            text-shadow: -1px -1px 0px #44006F;
+
+        }
+
+        .digits:hover,
+        #clearButton:hover,
+        .mathButtons:hover,
+        #sum:hover {
+            background-color: #FFBA75;
+            box-shadow: 0px 0px 2px #FFBA75, inset 0px -20px 1px #FF8000;
+            border-top: 2px solid #FFF;
+            border-top: 2px solid #FFF;
+            border-right: 2px solid #FFF;
+            border-bottom: 2px solid #AE5700;
+            border-left: 2px solid #AE5700;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <input type="text" id="input"><button id="deletebtn" class="button" onclick="del()">Del</button>
+        <!--<p id="para">para</p>-->
+        <br>
+        <button class="button digits" onclick="func(9)">9</button>
+        <button class="button digits" onclick="func(8)">8</button>
+        <button class="button digits" onclick="func(7)">7</button>
+        <button class="button mathButtons" onclick="func('+')">+</button>
+        <br>
+        <button class="button digits" onclick="func(6)">6</button>
+        <button class="button digits" onclick="func(5)">5</button>
+        <button class="button digits" onclick="func(4)">4</button>
+        <button class="button mathButtons" onclick="func('-')">-</button>
+        <br>
+        <button class="button digits" onclick="func(3)">3</button>
+        <button class="button digits" onclick="func(2)">2</button>
+        <button class="button digits" onclick="func(1)">1</button>
+        <button class="button mathButtons" onclick="func('x')">X</button>
+        <br>
+        <button id="clearButton" class="button" onclick="cl()">C</button>
+        <button class="button digits" onclick="func(0)">0</button>
+        <button id="sum" class="button" onclick="ev()">=</button>
+        <button class="button mathButtons" onclick="func('/')">/</button>
+
+    </div>
+    
+    <script>
+        let inpt = document.getElementById("input")
+        function func(tag) {
+            // console.log(tag)
+            inpt.value += tag;
+        }
+        function ev() {
+            console.log(eval(inpt.value))
+            inpt.value = eval(inpt.value)
+
+        }
+        function cl() {
+            console.log(inpt.value)
+            inpt.value = ""
+        }
+        function del() {
+            let text = inpt.value
+            console.log(text.slice(0, text.length - 1))
+            let deleted = text.slice(0, text.length - 1)
+            inpt.value = deleted
+            // inpt.value = inpt.value.slice(0, inpt.value.length - 1)
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
